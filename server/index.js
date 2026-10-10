@@ -3,7 +3,7 @@
 const mysql = require('mysql2/promise');
 require('dotenv').config();
 
-// Create the pool once at application startup
+// Create the pool once at application startup test
 const pool = mysql.createPool({
   connectionLimit : 10,
   host: process.env.DB_HOST,
