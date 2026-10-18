@@ -11,4 +11,9 @@ async function getBookById(id) {
   return rows[0];
 }
 
-module.exports = { getAllBooks , getBookById}
+async function createBook(title, available = true) {
+  const [result] = await pool.query('INSERT INTO books (title, available) VALUES (?, ?)', [title, available]);
+  return getBookById(result.insertId);
+}
+
+module.exports = { getAllBooks , getBookById, createBook}
